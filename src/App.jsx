@@ -1,16 +1,22 @@
-import { ChakraProvider, Container } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 
 import Hero from "./components/Hero";
 import theme from "./theme/theme";
+import Navbar from "./components/Navbar";
+import { Suspense } from "react";
+import Loading from "./components/Loading";
 
 function App() {
-  theme
+  theme;
   return (
-    <ChakraProvider theme={theme}>
-      <Container mt={"10em"}>
-        <Hero />
-      </Container>
-    </ChakraProvider>
+    <Suspense fallback={<Loading />}>
+      <ChakraProvider theme={theme}>
+        <Box h={"100vh"}>
+          <Navbar />
+          <Hero />
+        </Box>
+      </ChakraProvider>
+    </Suspense>
   );
 }
 

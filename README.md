@@ -1,4 +1,4 @@
-# Hyperstar 🌟
+# Hyperstar 🌠
 
 
 ```

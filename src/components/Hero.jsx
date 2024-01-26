@@ -1,26 +1,16 @@
-import { Center, Heading } from "@chakra-ui/react";
+import { AbsoluteCenter, Box } from "@chakra-ui/react";
 import SearchInput from "./SearchInput";
-import { useEffect, useState } from "react";
+import HeroHeading from "./HeroHeading";
 
 function Hero() {
-  const [clock, setClock] = useState(new Date());
-
-  useEffect(() => {
-    setInterval(() => setClock(new Date()), 1000);
-
-    return () => {
-      clearInterval(setClock);
-    };
-  }, []);
-
   return (
     <div>
-      <Center>
-        <Heading size={"4xl"} mb={2}>
-          {clock.getHours()}:{clock.getMinutes()}
-        </Heading>
-      </Center>
-      <SearchInput />
+      <Box mb={6}>
+        <AbsoluteCenter>
+          <HeroHeading />
+          <SearchInput />
+        </AbsoluteCenter>
+      </Box>
     </div>
   );
 }
