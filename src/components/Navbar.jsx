@@ -1,21 +1,29 @@
-import { Button, Flex, IconButton, Link, Spacer } from "@chakra-ui/react";
+/* eslint-disable react/prop-types */
+import {
+  Button,
+  ButtonGroup,
+  Flex,
+  IconButton,
+  Link,
+  Spacer,
+} from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
-import Toggle from "./Toggle";
+import { ControlPanel } from "./ControlPanel";
 
-function Navbar() {
+function Navbar({ setStyle, style, resetStyle }) {
   return (
     <>
-      <Flex p={2}>
-        <IconButton rounded={"full"}>
-          <Link
+      <Flex p={2} bg={style.bg} color={style.text}>
+        <Link href="https://github.com/foxy4096/hyperstar" isExternal>
+          <IconButton
+            aria-label="github"
             icon={<FaGithub />}
-            href="https://github.com/foxy4096/hyperstar"
-          >
-            <FaGithub />
-          </Link>
-        </IconButton>
+            size="lg"
+            rounded={style.rounded}
+          />
+        </Link>
         <Spacer />
-        <Button rounded={"full"} size={"lg"} fontSize={"xl"}>
+        <Button rounded={style.rounded} size={"lg"} fontSize={"xl"}>
           <Link
             isExternal
             href="https://hyperstar.vercel.app"
@@ -26,7 +34,13 @@ function Navbar() {
           </Link>
         </Button>
         <Spacer />
-        <Toggle />
+        <ButtonGroup>
+          <ControlPanel
+            style={style}
+            setStyle={setStyle}
+            resetStyle={resetStyle}
+          />
+        </ButtonGroup>
       </Flex>
     </>
   );

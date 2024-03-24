@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Center, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
@@ -31,7 +32,7 @@ const getMonth = (n) => {
   return months[n];
 };
 
-function HeroHeading() {
+function HeroHeading({style}) {
   const [clock, setClock] = useState(new Date());
 
   useEffect(() => {
@@ -43,7 +44,7 @@ function HeroHeading() {
   }, []);
   return (
     <>
-      <Center mb={1}>
+      <Center mb={1} color={style.text}>
         <Heading size={"4xl"}>
           {clock.getHours()}:{clock.getMinutes().toString().padStart(2, "0")}
         </Heading>

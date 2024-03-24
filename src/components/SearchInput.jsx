@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   IconButton,
   Input,
@@ -42,11 +43,9 @@ const searchProviders = [
   },
 ];
 
-const style = {
-  rounded: "full",
-};
 
-function SearchInput() {
+
+function SearchInput({style}) {
   const savedProvider =
     localStorage.getItem("searchProvider") || searchProviders[0].name;
 
@@ -60,7 +59,8 @@ function SearchInput() {
 
   return (
     <form action={selectedSearchProvider.searchUrl}>
-      <InputGroup size={"lg"}>
+      <InputGroup size={"lg"}
+      >
         <InputLeftElement>
           <Menu>
             <MenuButton
@@ -69,9 +69,10 @@ function SearchInput() {
               rounded={style.rounded}
               variant={"ghost"}
             ></MenuButton>
-            <MenuList>
+            <MenuList color={style.boxesText} bg={style.boxesBg}>
               {searchProviders.map((searchProvider) => (
                 <MenuItem
+                color={style.boxesText} bg={style.boxesBg}
                   key={searchProvider.name}
                   icon={searchProvider.icon}
                   onClick={() => setSelectedSearchProvider(searchProvider)}
@@ -94,7 +95,7 @@ function SearchInput() {
           <IconButton
             icon={<FaSearch />}
             rounded={style.rounded}
-            variant={"ghost"}
+            variant={style.buttonVarient}
             type="submit"
           />
         </InputRightElement>
