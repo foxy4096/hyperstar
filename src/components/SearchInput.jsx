@@ -43,9 +43,7 @@ const searchProviders = [
   },
 ];
 
-
-
-function SearchInput({style}) {
+function SearchInput() {
   const savedProvider =
     localStorage.getItem("searchProvider") || searchProviders[0].name;
 
@@ -59,20 +57,18 @@ function SearchInput({style}) {
 
   return (
     <form action={selectedSearchProvider.searchUrl}>
-      <InputGroup size={"lg"}
-      >
+      <InputGroup size={"lg"}>
         <InputLeftElement>
           <Menu>
             <MenuButton
               as={IconButton}
               icon={selectedSearchProvider.icon}
-              rounded={style.rounded}
+              rounded="full"
               variant={"ghost"}
             ></MenuButton>
-            <MenuList color={style.boxesText} bg={style.boxesBg}>
+            <MenuList>
               {searchProviders.map((searchProvider) => (
                 <MenuItem
-                color={style.boxesText} bg={style.boxesBg}
                   key={searchProvider.name}
                   icon={searchProvider.icon}
                   onClick={() => setSelectedSearchProvider(searchProvider)}
@@ -86,7 +82,7 @@ function SearchInput({style}) {
         <Input
           autoFocus
           isRequired={true}
-          rounded={style.rounded}
+          rounded="full"
           placeholder="Search the web"
           type="search"
           name={selectedSearchProvider.query}
@@ -94,8 +90,7 @@ function SearchInput({style}) {
         <InputRightElement>
           <IconButton
             icon={<FaSearch />}
-            rounded={style.rounded}
-            variant={style.buttonVarient}
+            rounded="full"
             type="submit"
           />
         </InputRightElement>

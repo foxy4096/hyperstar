@@ -8,38 +8,34 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
-import { ControlPanel } from "./ControlPanel";
+import Toggle from "./Toggle";
 
-function Navbar({ setStyle, style, resetStyle }) {
+function Navbar() {
   return (
     <>
-      <Flex p={2} bg={style.bg} color={style.text}>
+      <Flex p={2}>
         <Link href="https://github.com/foxy4096/hyperstar" isExternal>
           <IconButton
             aria-label="github"
             icon={<FaGithub />}
             size="lg"
-            rounded={style.rounded}
+            rounded="full"
           />
         </Link>
         <Spacer />
-        <Button rounded={style.rounded} size={"lg"} fontSize={"xl"}>
-          <Link
-            isExternal
-            href="https://hyperstar.vercel.app"
-            _hover={{ textDecor: "none" }}
-          >
+        <Link
+          isExternal
+          href="https://hyperstar.vercel.app"
+          _hover={{ textDecor: "none" }}
+        >
+          <Button rounded="full" size={"lg"} fontSize={"xl"}>
             <span style={{ color: "#5AB4CB" }}>Hyper</span>
             <span style={{ color: "#EFCB66" }}>Star</span> 🌠
-          </Link>
-        </Button>
+          </Button>
+        </Link>
         <Spacer />
         <ButtonGroup>
-          <ControlPanel
-            style={style}
-            setStyle={setStyle}
-            resetStyle={resetStyle}
-          />
+          <Toggle />
         </ButtonGroup>
       </Flex>
     </>

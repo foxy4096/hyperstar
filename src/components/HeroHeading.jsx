@@ -32,7 +32,7 @@ const getMonth = (n) => {
   return months[n];
 };
 
-function HeroHeading({style}) {
+function HeroHeading() {
   const [clock, setClock] = useState(new Date());
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function HeroHeading({style}) {
   }, []);
   return (
     <>
-      <Center mb={1} color={style.text}>
+      <Center mb={1}>
         <Heading size={"4xl"}>
           {clock.getHours()}:{clock.getMinutes().toString().padStart(2, "0")}
         </Heading>

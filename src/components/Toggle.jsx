@@ -4,12 +4,12 @@
 import { IconButton, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { BsSun, BsMoon } from "react-icons/bs";
 
-function Toggle({ style }) {
+function Toggle() {
   const { toggleColorMode } = useColorMode();
   return (
     <IconButton
       aria-label="Mode Change"
-      rounded={style.rounded}
+      rounded="full"
       w={"full"}
       icon={useColorModeValue(<BsMoon />, <BsSun />)}
       onClick={toggleColorMode}
