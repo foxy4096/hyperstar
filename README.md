@@ -14,7 +14,12 @@ https://hyperstar.vercel.app
 
 ### Screenshot
 
-![Screenshot](/public/screenshot.jpg)
+
+**Dark Mode**
+![Screenshot Dark](/public/screenshot.jpg)
+
+**Light Mode**
+![Screenshot Light](/public/screenshot-light.jpg)
 
 
 Peace ✌
